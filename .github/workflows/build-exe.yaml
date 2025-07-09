@@ -25,7 +25,7 @@ jobs:
 
     - name: Build EXE
       run: |
-        pyinstaller --onefile --name=SeuPrograma main.py
+        pyinstaller --onefile --name=GeradorGrafico --ico=planilha.ico main.py
 
     - name: Upload EXE artifact
       uses: actions/upload-artifact@v4

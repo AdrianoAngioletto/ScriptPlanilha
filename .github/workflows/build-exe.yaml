@@ -30,14 +30,22 @@ jobs:
       run: |
         pyinstaller --onefile --name=GeradorGrafico --ico=planilha.ico main.py
 
+    - name: Copiar arquivos necessários para dist
+      run: |
+        Copy-Item .\analista_tamila.xlsx dist\
+      shell: pwsh
+
+    - name: Testar o EXE gerado
+      run: |
+        .\dist\GeradorGrafico.exe > output.txt 2>&1
+        $exitcode = $LASTEXITCODE
+        echo "Exit code: $exitcode"
+        type output.txt
+        if ($exitcode -ne 0) { exit $exitcode }
+      shell: pwsh
+
     - name: Upload EXE artifact
       uses: actions/upload-artifact@v4
       with:
         name: seu_programa_exe
         path: dist/*
-
-        - name: Copiar arquivos necessários
-      run: |
-        Copy-Item .\planilha.ico dist\
-        Copy-Item .\analista_tamila.xlsx dist\
-      shell: pwsh

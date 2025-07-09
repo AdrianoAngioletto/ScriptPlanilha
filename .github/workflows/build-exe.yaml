@@ -35,3 +35,9 @@ jobs:
       with:
         name: seu_programa_exe
         path: dist/*
+
+        - name: Copiar arquivos necessários
+      run: |
+        Copy-Item .\planilha.ico dist\
+        Copy-Item .\analista_tamila.xlsx dist\
+      shell: pwsh

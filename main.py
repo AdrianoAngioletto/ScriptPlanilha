@@ -6,7 +6,7 @@ import sys
 import io
 
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8') # Para garantir que a saída do console suporte caracteres especiais
 
 class StartPlanilhas:
     def __init__(self, mes):
@@ -69,7 +69,7 @@ class StartPlanilhas:
         plt.title(f'Contagem de Status - Mês {self.mes}')
         plt.show()
 
-# Banner bonito com UTF-8 (três aspas duplas) corrigidas
+
 print("""
 ██████  ██    ██             █████  ██████  ██████  ██  █████  ███    ██  ██████       █████      ███    ██  ██████  ██  ██████  ██      ███████ ████████ ████████  ██████  
 ██   ██  ██  ██      ██     ██   ██ ██   ██ ██   ██ ██ ██   ██ ████   ██ ██    ██     ██   ██     ████   ██ ██       ██ ██    ██ ██      ██         ██       ██    ██    ██ 

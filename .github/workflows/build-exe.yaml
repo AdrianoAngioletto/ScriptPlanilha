@@ -23,6 +23,9 @@ jobs:
         pip install pyinstaller
         pip install -r requirements.txt
 
+    - name: Uninstall obsolete typing package
+      run: python -m pip uninstall -y typing
+
     - name: Build EXE
       run: |
         pyinstaller --onefile --name=GeradorGrafico --ico=planilha.ico main.py
